@@ -5,6 +5,10 @@
 @section('contenido')
 
     <!-- <a href="{{route('productos.create')}}" class="btn btn-danger col-6 col-md-1">Crear Producto</a> -->
+    <a href="{{route('productos.pdf')}}" class="btn btn-danger d-flex justify-content-center">PDF</a>
+    
+    &nbsp;
+
     <a href="{{route('productos.create')}}" class="btn btn-danger d-flex justify-content-center" >CREAR PRODUCTO</a>
 
     <table class="table table-dark table-striped mt-4">
