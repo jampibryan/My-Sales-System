@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProducto;
+use Illuminate\Support\Facades\App;
 
 class ProductoController extends Controller
 {
@@ -16,9 +17,21 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
+
         return view('productos.index', compact('productos'));
     }
     
+    public function pdf()
+    {
+        $productos = Producto::all();
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('productos.pdf', compact('productos')));
+        // return $pdf->stream();
+        return $pdf->download('Lista_Prodcutos.pdf');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
